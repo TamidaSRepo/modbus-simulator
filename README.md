@@ -1,11 +1,15 @@
 # TamidaS Modbus Simulator
 
+[![Website](https://img.shields.io/badge/Website-tamidas.com-1f6feb)](https://www.tamidas.com)
+[![User Guide](https://img.shields.io/badge/Docs-User%20Guide%20(PDF)-1a7f37)](Modbus-Simulator-User-Guide.pdf)
+[![Price](https://img.shields.io/badge/Price-Free-brightgreen)](https://www.tamidas.com)
+
 A free Modbus **slave/device simulator** that makes your PC behave like one or
 more Modbus devices, so a Modbus master — a SCADA system, gateway, PLC, data
 logger or your own firmware — can be developed and tested without the real
 equipment.
 
-Powered by **[TamidaS](https://www.tamidas.com)**.
+Powered by **[TamidaS](https://www.tamidas.com)** — free tools for engineers.
 
 ---
 
