@@ -15,7 +15,7 @@ Powered by **[TamidaS](https://www.tamidas.com)** — free tools for engineers.
 
 ## Overview
 
-The simulator runs as a single Windows executable. When started it opens a local
+The simulator runs as a single executable on Windows, macOS and Linux. When started it opens a local
 web interface in your browser where you build and drive the simulated devices;
 Modbus masters connect over TCP or a serial line and see them as real slaves.
 
@@ -38,10 +38,29 @@ Modbus masters connect over TCP or a serial line and see them as real slaves.
 - **Full visibility** — every request and response is logged as hex with its
   result, so you can see exactly what the master asked for and what was returned.
 
+## Download
+
+| Platform | File in this repository |
+|---|---|
+| Windows 10/11 (64-bit) | [tamidas-modbus-simulator.exe](tamidas-modbus-simulator.exe) |
+| macOS, Apple silicon (M1 and later) | [tamidas-modbus-simulator-1.0.0-macos-arm64.tar.gz](tamidas-modbus-simulator-1.0.0-macos-arm64.tar.gz) |
+| macOS, Intel | [tamidas-modbus-simulator-1.0.0-macos-x64.tar.gz](tamidas-modbus-simulator-1.0.0-macos-x64.tar.gz) |
+| Linux x64 (Ubuntu, Debian, Fedora, …) | [tamidas-modbus-simulator-1.0.0-linux-x64.tar.gz](tamidas-modbus-simulator-1.0.0-linux-x64.tar.gz) |
+| Linux arm64 (Raspberry Pi 4/5 64-bit, ARM servers) | [tamidas-modbus-simulator-1.0.0-linux-arm64.tar.gz](tamidas-modbus-simulator-1.0.0-linux-arm64.tar.gz) |
+
+Each file is a self-contained program: no installation, no Node.js, no account.
+
 ## Getting started
 
-1. **Run the program.** Double-click `tamidas-modbus-simulator.exe`. A console
-   window opens and shows the web address, and your default browser opens the
+1. **Run the program.**
+   - **Windows:** double-click `tamidas-modbus-simulator.exe`.
+   - **macOS:** unpack the archive, then right-click the binary and choose **Open** (it is not
+     notarised, so a plain double-click is refused the first time), or run once
+     `xattr -d com.apple.quarantine tamidas-modbus-simulator-macos-arm64` and start it from a terminal.
+   - **Linux:** `tar xzf tamidas-modbus-simulator-1.0.0-linux-x64.tar.gz && ./tamidas-modbus-simulator-linux-x64`.
+     To use a serial adapter without root, add your user to the `dialout` group.
+
+   A console window opens and shows the web address, and your default browser opens the
    simulator. Keep the console window open; closing it stops the simulator.
 2. **Add a slave.** Click **+ Add slave**, choose Modbus TCP, RTU or ASCII, and save.
 3. **Load a register map.** Upload the device's register list (CSV/Excel) or add
@@ -67,12 +86,12 @@ line and data folder, and troubleshooting.
 
 ## System requirements
 
-- Windows PC (the executable is a standalone Windows build).
-- For Modbus RTU / ASCII: a USB-to-RS-485 adapter (CH340, FTDI, CP210x, etc.).
+- Windows 10/11 64-bit, macOS 11 or later (Apple silicon or Intel), or a 64-bit Linux (x64 or arm64).
+- For Modbus RTU / ASCII: a USB-to-RS-485 adapter (CH340, FTDI, CP210x, etc.) and its driver.
 
-The program only runs locally and does not connect to the internet. Because the
-executable is not code-signed, Windows SmartScreen may show a warning on first
-run — choose **More info → Run anyway**.
+The program only runs locally and does not connect to the internet. The executables are not
+code-signed: Windows SmartScreen may show a warning on first run (choose **More info → Run
+anyway**) and macOS asks you to confirm opening an app from an unidentified developer.
 
 ## License
 
