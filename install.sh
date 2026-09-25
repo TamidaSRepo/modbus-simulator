@@ -5,7 +5,8 @@
 #
 # Downloads the build for this machine, verifies its SHA-256 checksum, installs it under
 # ~/.local/share/tamidas-modbus-simulator and links it into ~/.local/bin. On macOS the
-# quarantine flag is removed so Gatekeeper does not block the binary. Nothing needs root.
+# quarantine flag is removed as well (the builds are notarised; this just avoids the one-time
+# confirmation and lets an offline Mac start it). Nothing needs root.
 #
 # Environment overrides: VERSION (default 1.0.0), PREFIX (bin dir, default ~/.local/bin),
 # BASE_URL (where the archives are fetched from).

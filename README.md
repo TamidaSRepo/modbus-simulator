@@ -64,10 +64,10 @@ The script is [install.sh](install.sh) in this repository, so you can read it be
 
 1. **Run the program.**
    - **Windows:** double-click `tamidas-modbus-simulator.exe`.
-   - **macOS:** use the one-line install above, or unpack the archive and start the binary from
-     Terminal (`./tamidas-modbus-simulator-macos-arm64`). A double-click in Finder is refused because
-     the binary is not notarised; `xattr -d com.apple.quarantine <file>` clears that once, or on
-     macOS 15 and later choose *System Settings → Privacy & Security → Open Anyway* after the refusal.
+   - **macOS:** use the one-line install above, or unpack the archive and double-click the binary
+     (or start it from Terminal: `./tamidas-modbus-simulator-macos-arm64`). The macOS builds are
+     signed and notarised by Apple, so Gatekeeper opens them; if macOS asks once about a file
+     downloaded from the internet, click **Open**. Apple silicon uses the `arm64` build, Intel the `x64` build.
    - **Linux:** `tar xzf tamidas-modbus-simulator-1.0.0-linux-x64.tar.gz && ./tamidas-modbus-simulator-linux-x64`.
      To use a serial adapter without root, add your user to the `dialout` group.
 
@@ -100,9 +100,9 @@ line and data folder, and troubleshooting.
 - Windows 10/11 64-bit, macOS 11 or later (Apple silicon or Intel), or a 64-bit Linux (x64 or arm64).
 - For Modbus RTU / ASCII: a USB-to-RS-485 adapter (CH340, FTDI, CP210x, etc.) and its driver.
 
-The program only runs locally and does not connect to the internet. The executables are not
-code-signed: Windows SmartScreen may show a warning on first run (choose **More info → Run
-anyway**) and macOS asks you to confirm opening an app from an unidentified developer.
+The program only runs locally and does not connect to the internet. The macOS builds are signed
+with the TamidaS Developer ID and notarised by Apple. The Windows executable is not code-signed:
+SmartScreen may show a warning on first run (choose **More info → Run anyway**).
 
 ## License
 
