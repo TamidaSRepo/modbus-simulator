@@ -43,12 +43,15 @@ Modbus masters connect over TCP or a serial line and see them as real slaves.
 | Platform | File in this repository |
 |---|---|
 | Windows 10/11 (64-bit) | [tamidas-modbus-simulator.exe](tamidas-modbus-simulator.exe) |
-| macOS, Apple silicon (M1 and later) | [tamidas-modbus-simulator-1.0.0-macos-arm64.tar.gz](tamidas-modbus-simulator-1.0.0-macos-arm64.tar.gz) |
-| macOS, Intel | [tamidas-modbus-simulator-1.0.0-macos-x64.tar.gz](tamidas-modbus-simulator-1.0.0-macos-x64.tar.gz) |
+| macOS, Apple silicon (M1 and later) — installer | [tamidas-modbus-simulator-1.0.0-macos-arm64.pkg](tamidas-modbus-simulator-1.0.0-macos-arm64.pkg) |
+| macOS, Intel — installer | [tamidas-modbus-simulator-1.0.0-macos-x64.pkg](tamidas-modbus-simulator-1.0.0-macos-x64.pkg) |
+| macOS, Apple silicon — portable binary | [tamidas-modbus-simulator-1.0.0-macos-arm64.tar.gz](tamidas-modbus-simulator-1.0.0-macos-arm64.tar.gz) |
+| macOS, Intel — portable binary | [tamidas-modbus-simulator-1.0.0-macos-x64.tar.gz](tamidas-modbus-simulator-1.0.0-macos-x64.tar.gz) |
 | Linux x64 (Ubuntu, Debian, Fedora, …) | [tamidas-modbus-simulator-1.0.0-linux-x64.tar.gz](tamidas-modbus-simulator-1.0.0-linux-x64.tar.gz) |
 | Linux arm64 (Raspberry Pi 4/5 64-bit, ARM servers) | [tamidas-modbus-simulator-1.0.0-linux-arm64.tar.gz](tamidas-modbus-simulator-1.0.0-linux-arm64.tar.gz) |
 
-Each file is a self-contained program: no installation, no Node.js, no account.
+Each file is a self-contained program: no Node.js, no account. The macOS `.pkg` installs the
+`tamidas-modbus-simulator` command; every other file runs in place.
 
 **macOS and Linux — easiest:** one command downloads the right build, checks its SHA-256 and installs it
 for your user (no root, no Gatekeeper prompt):
@@ -64,10 +67,12 @@ The script is [install.sh](install.sh) in this repository, so you can read it be
 
 1. **Run the program.**
    - **Windows:** double-click `tamidas-modbus-simulator.exe`.
-   - **macOS:** use the one-line install above, or unpack the archive and double-click the binary
-     (or start it from Terminal: `./tamidas-modbus-simulator-macos-arm64`). The macOS builds are
-     signed and notarised by Apple, so Gatekeeper opens them; if macOS asks once about a file
-     downloaded from the internet, click **Open**. Apple silicon uses the `arm64` build, Intel the `x64` build.
+   - **macOS, installer:** double-click the `.pkg`, click through the installer, then open Terminal and
+     type `tamidas-modbus-simulator`. It is signed, notarised and stapled, so no security prompt appears.
+   - **macOS, portable:** use the one-line install above, or unpack the `.tar.gz` and double-click the binary
+     (or start it from Terminal: `./tamidas-modbus-simulator-macos-arm64`). These builds are signed and
+     notarised too; if macOS asks once about a file downloaded from the internet, click **Open**.
+     Apple silicon uses the `arm64` build, Intel the `x64` build.
    - **Linux:** `tar xzf tamidas-modbus-simulator-1.0.0-linux-x64.tar.gz && ./tamidas-modbus-simulator-linux-x64`.
      To use a serial adapter without root, add your user to the `dialout` group.
 
@@ -80,7 +85,8 @@ The script is [install.sh](install.sh) in this repository, so you can read it be
    polling. Watch the request log.
 
 Settings and register maps are stored in a `data` folder created next to the
-executable, so everything is back after a restart.
+executable (for the macOS `.pkg` install: `~/Library/Application Support/tamidas-modbus-simulator`),
+so everything is back after a restart.
 
 > The web interface uses port `8080` by default. If that port is busy the next
 > free port is used and printed in the console window.
