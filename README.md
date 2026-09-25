@@ -50,13 +50,24 @@ Modbus masters connect over TCP or a serial line and see them as real slaves.
 
 Each file is a self-contained program: no installation, no Node.js, no account.
 
+**macOS and Linux — easiest:** one command downloads the right build, checks its SHA-256 and installs it
+for your user (no root, no Gatekeeper prompt):
+
+```bash
+curl -fsSL https://raw.githubusercontent.com/TamidaSRepo/modbus-simulator/main/install.sh | sh
+tamidas-modbus-simulator
+```
+
+The script is [install.sh](install.sh) in this repository, so you can read it before running it.
+
 ## Getting started
 
 1. **Run the program.**
    - **Windows:** double-click `tamidas-modbus-simulator.exe`.
-   - **macOS:** unpack the archive, then right-click the binary and choose **Open** (it is not
-     notarised, so a plain double-click is refused the first time), or run once
-     `xattr -d com.apple.quarantine tamidas-modbus-simulator-macos-arm64` and start it from a terminal.
+   - **macOS:** use the one-line install above, or unpack the archive and start the binary from
+     Terminal (`./tamidas-modbus-simulator-macos-arm64`). A double-click in Finder is refused because
+     the binary is not notarised; `xattr -d com.apple.quarantine <file>` clears that once, or on
+     macOS 15 and later choose *System Settings → Privacy & Security → Open Anyway* after the refusal.
    - **Linux:** `tar xzf tamidas-modbus-simulator-1.0.0-linux-x64.tar.gz && ./tamidas-modbus-simulator-linux-x64`.
      To use a serial adapter without root, add your user to the `dialout` group.
 
