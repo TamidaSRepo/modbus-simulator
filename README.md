@@ -67,8 +67,11 @@ The script is [install.sh](install.sh) in this repository, so you can read it be
 
 1. **Run the program.**
    - **Windows:** double-click `tamidas-modbus-simulator.exe`.
-   - **macOS, installer:** double-click the `.pkg`, click through the installer, then open Terminal and
-     type `tamidas-modbus-simulator`. It is signed, notarised and stapled, so no security prompt appears.
+   - **macOS, installer:** double-click the `.pkg` and click through the installer. It is signed,
+     notarised and stapled, so no security prompt appears. It installs **TamidaS Modbus Simulator**
+     into your Applications folder — open it from Launchpad or the Applications folder and the web
+     interface opens in your browser. Quitting it from the Dock stops the simulator. The command
+     `tamidas-modbus-simulator` also works from any Terminal if you prefer.
    - **macOS, portable:** use the one-line install above, or unpack the `.tar.gz` and double-click the binary
      (or start it from Terminal: `./tamidas-modbus-simulator-macos-arm64`). These builds are signed and
      notarised too; if macOS asks once about a file downloaded from the internet, click **Open**.
@@ -90,6 +93,18 @@ so everything is back after a restart.
 
 > The web interface uses port `8080` by default. If that port is busy the next
 > free port is used and printed in the console window.
+
+### Removing the macOS install
+
+The installer also places an uninstaller, since a `.pkg` gives macOS no way to undo itself:
+
+```bash
+sudo tamidas-modbus-simulator-uninstall           # remove the program, keep saved slaves
+sudo tamidas-modbus-simulator-uninstall --purge   # also delete saved slaves and register maps
+```
+
+It removes the app, the command and the installer receipt. The portable `.tar.gz` builds need no
+uninstaller — delete the binary.
 
 ## Documentation
 
